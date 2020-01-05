@@ -64,4 +64,9 @@ public class StringCalculatorTest {
         expectedException.expectMessage("Negative values not allowed - 52,-24,-48,36");
         calculator.add("52,-24\n-48,36");
     }
+
+    @Test
+    public void add_ignore_numbers_that_bigger_than_thousand() {
+        assertEquals(Integer.valueOf(180), calculator.add("30,1220\n90,60"));
+    }
 }

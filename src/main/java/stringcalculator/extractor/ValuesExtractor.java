@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class ValuesExtractor implements Extractor<List, String> {
-    private final String DEFAULT_DELIMITER = ",";
+    private final static String DEFAULT_DELIMITER = ",";
 
     @Override
     public List<String> extract(String value) {

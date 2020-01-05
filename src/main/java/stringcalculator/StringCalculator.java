@@ -13,6 +13,7 @@ public class StringCalculator {
     private DelimiterExtractor delimiterExtractor;
     private ContentExtractor contentExtractor;
     private ValuesExtractor valuesExtractor;
+    private final static Integer DEFAULT_THRESHOLD = 1000;
 
     public StringCalculator() {
         delimiterExtractor = new DelimiterExtractor();
@@ -45,6 +46,11 @@ public class StringCalculator {
                 errors.add(value.toString());
                 continue;
             }
+
+            if (value > DEFAULT_THRESHOLD) {
+                continue;
+            }
+
             total += value;
         }
 

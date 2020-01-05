@@ -14,6 +14,16 @@ public class StringCalculator {
             return convertToInt(cleanedInput);
         }
 
+        String[] arrInput = cleanedInput.split("\n");
+        Integer total = 0;
+        int i = 0;
+        while (i < arrInput.length) {
+            total += calculateTotal(arrInput[i++]);
+        }
+        return total;
+    }
+
+    private Integer calculateTotal(String cleanedInput) {
         String[] arrInput = cleanedInput.split(",", -1);
         Integer total = 0;
         int i = 0;

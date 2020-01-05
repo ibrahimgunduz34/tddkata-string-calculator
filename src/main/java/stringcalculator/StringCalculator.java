@@ -14,9 +14,14 @@ public class StringCalculator {
             return convertToInt(cleanedInput);
         }
 
-        String v1 = cleanedInput.substring(0, cleanedInput.indexOf(","));
-        String v2 = cleanedInput.substring(cleanedInput.indexOf(",")+1);
-        return convertToInt(v1) + convertToInt(v2);
+        String[] arrInput = cleanedInput.split(",", -1);
+        Integer total = 0;
+        int i = 0;
+        while (i < arrInput.length) {
+            total += convertToInt(arrInput[i++]);
+        }
+
+        return total;
     }
 
     private Integer convertToInt(String value) {

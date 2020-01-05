@@ -24,7 +24,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void add_two_numbers() {
-        assertEquals(Integer.valueOf(76), calculator.add("52,24"));
+    public void add_multiple_numbers() {
+        assertEquals(Integer.valueOf(160), calculator.add("52,24,36,48"));
     }
 }

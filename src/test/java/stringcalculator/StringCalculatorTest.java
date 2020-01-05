@@ -48,5 +48,8 @@ public class StringCalculatorTest {
         assertEquals(Integer.valueOf(160), calculator.add("52,24\n36,48"));
     }
 
-
+    @Test
+    public void add_values_with_custom_delimiter() {
+        assertEquals(Integer.valueOf(160), calculator.add("//;\n52;24\n36;48"));
+    }
 }

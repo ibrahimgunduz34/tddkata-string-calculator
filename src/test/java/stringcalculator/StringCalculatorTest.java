@@ -1,12 +1,17 @@
 package stringcalculator;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
 public class StringCalculatorTest {
     private StringCalculator calculator;
+
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Before
     public void setup() {
@@ -51,5 +56,12 @@ public class StringCalculatorTest {
     @Test
     public void add_values_with_custom_delimiter() {
         assertEquals(Integer.valueOf(160), calculator.add("//;\n52;24\n36;48"));
+    }
+
+    @Test
+    public void add_handle_negative_value_errors() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Negative values not allowed - 52,-24,-48,36");
+        calculator.add("52,-24\n-48,36");
     }
 }
